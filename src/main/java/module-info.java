@@ -4,6 +4,8 @@ module com.artisoft.watermarkdesktop {
     requires org.apache.tika.core;
     requires jakarta.xml.bind;
     requires java.desktop;
+    //requires these packages
+    requires java.sql;
 
 
     opens com.artisoft.watermarkdesktop to javafx.fxml;

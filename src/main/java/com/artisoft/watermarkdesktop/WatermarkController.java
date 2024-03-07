@@ -1,5 +1,6 @@
 package com.artisoft.watermarkdesktop;
 
+import com.artisoft.watermarkdesktop.service.WatermarkService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -9,6 +10,7 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.shape.Rectangle;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class WatermarkController {
@@ -36,10 +38,6 @@ public class WatermarkController {
     protected void handleDrop(DragEvent e){
         files = e.getDragboard().getFiles();
 
-//        for (File f : files){
-//            System.out.println(f.getName());
-//        }
-
     }
 
     @FXML
@@ -50,23 +48,22 @@ public class WatermarkController {
         }
         watermarkFile = e.getDragboard().getFiles().get(0);
 
-//        for (File f : files){
-//            System.out.println(f.getName());
-//        }
-
-
     }
 
     @FXML
-    protected void generateWatermark(){
-        if(files == null || files.isEmpty()){
+    protected void generateWatermark() throws IOException {
+        if(files == null || files.isEmpty() || watermarkFile == null){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Файлы не выбраны", ButtonType.OK);
             alert.showAndWait();
         } else {
             // proceed service
+            WatermarkService watermarkService = new WatermarkService();
             for (File f : files){
-                System.out.println(f.getName());
+                System.out.println("original files: " + f.getName());
             }
+            System.out.println("watermark: " + watermarkFile.getName());
+
+            watermarkService.createWatermark(files.get(0), watermarkFile);
         }
 
         // Cleaning up
