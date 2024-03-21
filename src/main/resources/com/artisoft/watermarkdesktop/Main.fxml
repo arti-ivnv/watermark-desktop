@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.WatermarkController">
    <children>
-      <Rectangle fx:id="originalDropBox" arcHeight="5.0" arcWidth="5.0" fill="#b2b2b2" height="117.0" layoutX="50.0" layoutY="170.0" onDragDropped="#handleDrop" onDragOver="#handleDragOver" stroke="BLACK" strokeType="INSIDE" width="500.0" />
-      <Rectangle fx:id="watermarkDropBox" arcHeight="5.0" arcWidth="5.0" fill="#bcbcbc" height="117.0" layoutX="50.0" layoutY="374.0" onDragDropped="#handleDropWatermark" onDragOver="#handleDragOver" stroke="BLACK" strokeType="INSIDE" width="500.0" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="374.0" />
-      <Button fx:id="generateBtn" layoutX="224.0" layoutY="563.0" mnemonicParsing="false" onAction="#generateWatermark" prefHeight="69.0" prefWidth="152.0" text="Сгенерировать" textFill="WHITE" AnchorPane.bottomAnchor="168.0" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="563.0" />
+      <Rectangle fx:id="originalDropBox" arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e70" height="117.0" layoutX="50.0" layoutY="170.0" onDragDropped="#handleDrop" onDragExited="#dragExit" onDragOver="#handleDragOver" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="551.0" AnchorPane.bottomAnchor="513.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="170.0" />
+      <Rectangle fx:id="watermarkDropBox" arcHeight="5.0" arcWidth="5.0" fill="#6f6f6f70" height="117.0" layoutX="23.0" layoutY="374.0" onDragDropped="#handleDropWatermark" onDragExited="#dragExitWatermark" onDragOver="#handleDragOverWatermark" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="551.0" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="374.0" />
+      <Button fx:id="generateBtn" layoutX="361.0" layoutY="586.0" mnemonicParsing="false" onAction="#generateWatermark" prefHeight="69.0" prefWidth="154.0" text="СГЕНЕРИРОВАТЬ" textFill="WHITE" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="361.0" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="586.0" />
+      <Button fx:id="resetBtn" layoutX="86.0" layoutY="586.0" mnemonicParsing="false" onAction="#resetAction" prefHeight="69.0" prefWidth="154.0" text="СБРОСИТЬ" textFill="WHITE" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="361.0" AnchorPane.topAnchor="586.0" />
+      <Label fx:id="watermarkFileLabel" layoutX="24.0" layoutY="498.0" prefHeight="40.0" prefWidth="551.0" text="Some files" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" />
+      <Label fx:id="titleLabel" layoutX="2.0" layoutY="6.0" prefHeight="69.0" prefWidth="600.0" text="Wartermark App" />
+      <Label fx:id="originalDropBoxLabel" disable="true" layoutX="25.0" layoutY="191.0" prefHeight="69.0" prefWidth="551.0" text="Поместите сюда ориганальные файлы" />
+      <Label fx:id="watermarkDropBoxLabel" disable="true" layoutX="25.0" layoutY="398.0" prefHeight="69.0" prefWidth="551.0" text="Поместите сюда накладываемый шаблон" />
+      <Label fx:id="subTitle" layoutY="83.0" prefHeight="26.0" prefWidth="603.0" text="Версия для отдела Видеодокументирования ПТ и АСР" />
+      <Label fx:id="origFilesLabel" layoutX="25.0" layoutY="293.0" prefHeight="40.0" prefWidth="525.0" text="Some files" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" />
+      <TextArea fx:id="adText" editable="false" layoutY="683.0" prefHeight="117.0" prefWidth="603.0" text="Current program is made by ArtiSoft.&#10;GitHub: https://github.com/arti-ivnv&#10;LinkedIn: https://www.linkedin.com/in/artem-ivanov-9815a2172/&#10;Telegram: https://telegram.me/FoxyHikka/&#10;Please contact me regarding any comercial offers. &#10;(RU) Пожалуйста, свяжитесь со мной касаемо комерческих заказов по разработке ПО." />
    </children>
 </AnchorPane>
