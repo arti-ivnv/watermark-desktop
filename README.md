@@ -12,7 +12,7 @@ I have decided to make it open source. :)
 </pre>
 
 <div align="center">
-    <img src="readme-img/img.png" style="width: 70% " alt="none">
+    <img src="readme_img/img.png" style="width: 70% " alt="none">
 </div>
 
 ## Project contains
