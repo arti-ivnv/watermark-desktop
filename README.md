@@ -22,7 +22,7 @@ I have decided to make it open source. :)
 ## Installation (usage)
 For current version, I messed up doing an installer, so I made an executable runner.<br>
 The only thing you need to do:
-1) Download folder ```watermark_prod folder``` which you can find in ```~/watermark-desktop/exec/```
+1) Download folder ```watermark_prod``` which you can find in ```~/watermark-desktop/exec/```
 2) run ```Watermark.exe```
 
 ## Usage 
