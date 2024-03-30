@@ -33,5 +33,3 @@ In case to modify my program you need JDK which is compatible with JFX v18.*
 1) English language support
 2) Text version of watermark (typed / txt file uploaded)
 3) Different watermark patterns (it is ready but requires some improvements)
-
-

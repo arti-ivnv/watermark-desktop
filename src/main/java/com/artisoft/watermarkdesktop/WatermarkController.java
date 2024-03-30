@@ -76,7 +76,7 @@ public class WatermarkController {
     @FXML
     protected void handleDropWatermark(DragEvent e) {
         if (e.getDragboard().getFiles().size() > 1) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Возможно загрузить только одну watermark.", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "You can upload only one watermark image!", ButtonType.OK);
             alert.showAndWait();
         }
         this.watermarkFile = e.getDragboard().getFiles().get(0);
@@ -95,14 +95,14 @@ public class WatermarkController {
     @FXML
     protected void generateWatermark() throws IOException {
         if (this.files == null || this.files.isEmpty() || this.watermarkFile == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "файлы не выбраны!", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please choose at least one file!", ButtonType.OK);
             alert.showAndWait();
         } else {
             for (File f : this.files) {
                 WatermarkService watermarkService = new WatermarkService();
                 watermarkService.createWatermark(f, this.watermarkFile);
             }
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Файл(ы) был сгенерирован у вас на рабочем столе!", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Complete! They are located in your Desktop directory!", ButtonType.OK);
             alert.showAndWait();
         }
     }

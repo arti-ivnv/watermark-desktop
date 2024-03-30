@@ -19,7 +19,6 @@ import org.apache.tika.Tika;
 
 public class WatermarkService {
     public void createWatermark(File originalFile, File watermarkFile) throws IOException {
-        String text = "Hello";
         byte[] fileContent = this.imageToBytes(originalFile);
         String originalImg = Base64.getEncoder().encodeToString(fileContent);
         fileContent = this.imageToBytes(watermarkFile);
