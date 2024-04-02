@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
@@ -17,6 +16,11 @@
       <Label fx:id="originalDropBoxLabel" disable="true" layoutX="25.0" layoutY="191.0" prefHeight="69.0" prefWidth="551.0" text="Drag your files here" />
       <Label fx:id="watermarkDropBoxLabel" disable="true" layoutX="25.0" layoutY="398.0" prefHeight="69.0" prefWidth="551.0" text="Please place your watermark image here (PNG ONLY!!)" />
       <Label fx:id="origFilesLabel" layoutX="25.0" layoutY="293.0" prefHeight="40.0" prefWidth="525.0" text="Some files" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" />
-      <TextArea fx:id="adText" editable="false" layoutY="683.0" prefHeight="117.0" prefWidth="603.0" text="Current program is made by Artem Ivanov.&#10;GitHub: https://github.com/arti-ivnv&#10;LinkedIn: https://www.linkedin.com/in/artem-ivanov-9815a2172/&#10;Telegram: https://telegram.me/FoxyHikka/&#10;Please contact me regarding any comercial offers. &#10;(RU) Пожалуйста, свяжитесь со мной касаемо комерческих заказов по разработке ПО." />
+      <Label fx:id="ad1" layoutX="14.0" layoutY="682.0" prefHeight="18.0" prefWidth="579.0" text="This program is made by Artem Ivanov." AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="675.0" />
+      <Label fx:id="ad2" layoutX="15.0" layoutY="700.0" prefHeight="18.0" prefWidth="579.0" text="GitHub: https://github.com/arti-ivnv" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="695.0" />
+      <Label fx:id="ad3" layoutX="13.0" layoutY="718.0" prefHeight="18.0" prefWidth="579.0" text="LinkedIn: https://www.linkedin.com/in/artem-ivanov-9815a2172/" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="715.0" />
+      <Label fx:id="ad4" layoutX="13.0" layoutY="736.0" prefHeight="18.0" prefWidth="579.0" text="Telegram: https://telegram.me/FoxyHikka/" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="735.0" />
+      <Label fx:id="ad5" layoutX="10.0" layoutY="758.0" prefHeight="18.0" prefWidth="579.0" text="Please contact me regarding any comercial offers. " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="755.0" />
+      <Label fx:id="ad6" layoutX="20.0" layoutY="768.0" prefHeight="18.0" prefWidth="579.0" text="(RU) Пожалуйста, свяжитесь со мной касаемо комерческих заказов по разработке ПО." AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="775.0" />
    </children>
 </AnchorPane>

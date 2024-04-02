@@ -13,8 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -41,6 +46,8 @@ public class WatermarkController {
     public Label subTitle;
     @FXML
     public TextArea adText;
+    @FXML
+    public ImageView exitButton;
     private List<File> files = new ArrayList<File>();
     private List<String> fileNames = new ArrayList<String>();
     private File watermarkFile = null;
@@ -54,8 +61,17 @@ public class WatermarkController {
     }
 
     @FXML
+    protected void clickExitButton(MouseEvent e){
+        System.exit(0);
+    }
+
+    @FXML
+    protected void mouseOverExit(MouseEvent e){
+    }
+
+    @FXML
     protected void dragExit(DragEvent e) {
-        this.originalDropBox.setFill(Color.GREY);
+        originalDropBox.setFill(Color.rgb(72,72,72));
     }
 
     @FXML
@@ -91,6 +107,7 @@ public class WatermarkController {
         this.origFilesLabel.setText("Some Files");
         this.watermarkFileLabel.setText("Some File");
     }
+
 
     @FXML
     protected void generateWatermark() throws IOException {

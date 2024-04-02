@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane styleClass="boby" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.WatermarkController">
+   <center>
+      <Pane prefHeight="800.0" prefWidth="800.0" styleClass="body" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="titleLabel" layoutX="134.0" prefHeight="154.0" prefWidth="532.0" stylesheets="@style/dark_mode.css" text="Watermark App">
+               <padding>
+                  <Insets bottom="40.0" left="18.0" right="5.0" top="50.0" />
+               </padding>
+            </Label>
+            <HBox layoutX="58.0" layoutY="428.0" prefHeight="166.0" prefWidth="690.0" spacing="80.0">
+               <children>
+                  <Button id="button-menu-png" mnemonicParsing="false" prefHeight="165.0" prefWidth="169.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="PNG " />
+                  <Button id="button-menu-text" mnemonicParsing="false" prefHeight="166.0" prefWidth="171.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Text" />
+                  <Button id="button-menu-editor" mnemonicParsing="false" prefHeight="166.0" prefWidth="171.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Editor" />
+               </children>
+            </HBox>
+            <HBox layoutX="192.0" layoutY="692.0" prefHeight="68.0" prefWidth="419.0" spacing="100.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="151.0" styleClass="button-reset" stylesheets="@style/dark_mode.css" text="RESET" />
+                  <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="151.0" styleClass="button-generate" text="GENERATE" />
+               </children>
+            </HBox>
+            <Label fx:id="origFilesLabel" layoutX="35.0" layoutY="321.0" prefHeight="34.0" prefWidth="738.0" text="Files:" />
+            <Label layoutX="35.0" layoutY="355.0" prefHeight="34.0" prefWidth="738.0" text="Amount: " />
+            <Rectangle fx:id="originalDropBox" arcHeight="1.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutX="44.0" layoutY="178.0" onDragDropped="#handleDrop" onDragExited="#dragExit" onDragOver="#handleDragOver" stroke="BLACK" strokeType="INSIDE" width="691.0" />
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <Pane prefHeight="162.0" prefWidth="779.0" styleClass="footer" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="26.0" layoutY="15.0" lineSpacing="5.0" prefHeight="133.0" prefWidth="732.0" styleClass="footer-txt" text="Current program is made by Artem Ivanov. &#10;GitHub: &#10;LinkedIn:&#10;Telegram: &#10;Please contact me regarding any comercial offers. &#10;(RU) Пожалуйста, свяжитесь со мной касаемо комерческих заказов по разработке ПО.&#10;Icons by " wrapText="true" />
+            <Hyperlink layoutX="84.0" layoutY="130.0" prefHeight="20.0" prefWidth="58.0" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="Icon8" underline="true" />
+            <Hyperlink layoutX="74.0" layoutY="34.0" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="arti-ivnv" underline="true" />
+            <Hyperlink layoutX="89.0" layoutY="53.0" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="artem-ivanov-9815a2172" underline="true" />
+            <Hyperlink layoutX="89.0" layoutY="73.0" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="FoxyHikka" underline="true" />
+         </children>
+      </Pane>
+   </bottom>
+   <top>
+      <Pane prefHeight="50.0" prefWidth="800.0" styleClass="header" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@lol.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </top>
+</BorderPane>

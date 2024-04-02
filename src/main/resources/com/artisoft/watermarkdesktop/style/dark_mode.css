@@ -1,0 +1,129 @@
+.body{
+    -fx-background-color: #202124;
+}
+
+.footer{
+    -fx-background-color: #202124;
+}
+
+.header{
+    -fx-background-color: #202124;
+}
+
+#titleLabel{
+    -fx-font-size: 60;
+    -fx-alignment: center;
+    -fx-text-fill: #ffff;
+    /*-fx-text-fill: rgba(28, 107, 255, 0.98)*/
+}
+
+.label{
+    -fx-font-size: 12;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: #ffff;
+}
+
+/*.Rectangle{*/
+/*    -fx-fill: black;*/
+/*}*/
+
+#originalDropBox{
+    /*-fx-border-width: 5px;*/
+    /*-fx-border-radius: 25% 10%;*/
+    /*-fx-border-style: dotted;*/
+    /*-fx-stroke: none;*/
+
+    -fx-background-radius: 10px;
+    -fx-background-color: #5d5d5d;
+    -fx-border-radius: 10px;
+    -fx-fill: #484848;
+
+    /*-fx-border-radius: 9px;*/
+    /*-fx-border-width: 1px;*/
+    /*-fx-border-color: #232323;*/
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+#exitButton{
+    -fx-graphic: url("images/icons8-exit.png");
+}
+
+#originalDropBox-over{
+    /*-fx-border-width: 5px;*/
+    /*-fx-border-radius: 25% 10%;*/
+    /*-fx-border-style: dotted;*/
+    /*-fx-stroke: none;*/
+
+    -fx-background-radius: 10px;
+    -fx-background-color: #1ea214;
+
+    /*-fx-border-radius: 9px;*/
+    /*-fx-border-width: 1px;*/
+    /*-fx-border-color: #232323;*/
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+
+
+.button-reset {
+    -fx-background-color: rgb(225, 14, 14);
+    -fx-border-style: none;
+    -fx-effect: dropshadow(one-pass-box, #620202, 0, 0, 6, 6);
+    -fx-font-size: 12;
+    /*-fx-font-weight: ;*/
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "white";
+}
+
+.button-generate {
+    -fx-background-color: rgb(30, 162, 20);
+    -fx-border-style: none;
+    -fx-effect: dropshadow(one-pass-box, rgba(18, 98, 13, 0.41), 0, 0, 6, 6);
+    -fx-font-size: 12;
+    /*-fx-font-weight: ;*/
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "white";
+}
+
+.button-menu{
+    -fx-background-radius: 20;
+    -fx-border-width: 3px;
+    -fx-border-style: solid;
+    -fx-border-color: rgba(33, 85, 215, 0.53);
+    -fx-border-radius: 19;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(15, 107, 190, 0.8), 20, 0, 0, 0);*/
+    -fx-effect: dropshadow(one-pass-box, rgba(69, 81, 201, 0.8), 0, 0, 6, 6);
+    /*-fx-background-image: url('icons8-png-64.png');*/
+    -fx-background-color: rgb(34, 34, 35);
+    /*-fx-border-style: none;*/
+    -fx-text-fill: "white";
+}
+
+#button-menu-png{
+    -fx-graphic: url('images/icons8-png-64.png');
+}
+
+#button-menu-text{
+    -fx-graphic: url('images/icons8-text.png');
+}
+
+#button-menu-editor{
+    -fx-graphic: url('images/icons8-editor.png');
+}
+
+.footer-txt{
+    -fx-font-size: 12;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: #8c8c8c;
+}
+
+#line-breaker{
+    -fx-stroke-dash-array: 12 9 9 2;
+}
+
+#button-exit{
+    -fx-graphic: url('images/icons8-exit.png');
+    -fx-background-color: rgb(34, 34, 35);
+    -fx-border-style: none;
+}
+
