@@ -21,24 +21,34 @@ public class WatermarkService {
     public void createWatermark(File originalFile, File watermarkFile) throws IOException {
         byte[] fileContent = this.imageToBytes(originalFile);
         String originalImg = Base64.getEncoder().encodeToString(fileContent);
+
         fileContent = this.imageToBytes(watermarkFile);
         String watermarkImg = Base64.getEncoder().encodeToString(fileContent);
+
         byte[] base64Bytes = DatatypeConverter.parseBase64Binary(originalImg);
         byte[] imgBytes = Base64.getDecoder().decode(originalImg);
+
         byte[] watermarkBase64Bytes = DatatypeConverter.parseBase64Binary(watermarkImg);
         byte[] watermarkImgBytes = Base64.getDecoder().decode(watermarkImg);
+
         Tika tika = new Tika();
         String fileType = tika.detect(base64Bytes).split("/")[1];
+
         System.out.println("fileType: " + fileType);
         String watermarkFileType = tika.detect(watermarkBase64Bytes).split("/")[1];
+
         System.out.println("fileType: " + watermarkFileType);
         ByteArrayInputStream is = new ByteArrayInputStream(imgBytes);
+
         BufferedImage bi = ImageIO.read(is);
+
         ByteArrayInputStream watrermarkIs = new ByteArrayInputStream(watermarkImgBytes);
         BufferedImage watermarkBi = ImageIO.read(watrermarkIs);
+
         Font f = new Font("TimesRoman", 1, 10);
         BufferedImage watermarkImage = watermarkBi;
         ByteArrayOutputStream os = new ByteArrayOutputStream();
+
         boolean shift = false;
         switch (fileType) {
             case "png": {
