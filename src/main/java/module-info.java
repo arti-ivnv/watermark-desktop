@@ -13,5 +13,6 @@ module com.artisoft.watermarkdesktop {
     opens com.artisoft.watermarkdesktop.app to javafx.fxml;
 
     opens com.artisoft.watermarkdesktop.controller to javafx.fxml;
+    exports com.artisoft.watermarkdesktop.controller;
 
 }

@@ -1,4 +1,4 @@
-package com.artisoft.watermarkdesktop;
+package com.artisoft.watermarkdesktop.controller;
 
 import com.artisoft.watermarkdesktop.app.LoadPngApp;
 import com.artisoft.watermarkdesktop.service.WatermarkService;
@@ -49,7 +49,7 @@ public class WatermarkController {
     public Label filesCounter;
     private List<File> files = new ArrayList<File>();
     private List<String> fileNames = new ArrayList<String>();
-    private File watermarkFile = null;
+    protected File watermarkFile = null;
 
     @FXML
     protected void handleDragOver(DragEvent e) {
@@ -62,10 +62,6 @@ public class WatermarkController {
     @FXML
     protected void clickExitButton(){
         System.exit(0);
-    }
-
-    @FXML
-    protected void clickExitButtonPng(){
     }
 
     @FXML
@@ -124,8 +120,9 @@ public class WatermarkController {
 
     @FXML
     protected void pngLoader() throws IOException {
-        URL url = this.getClass().getResource("pngLoadScreen.fxml");
-        LoadPngApp loadPng = new LoadPngApp(url);
+
+        URL url = this.getClass().getResource("/com/artisoft/watermarkdesktop/pngLoadScreen.fxml");
+        new LoadPngApp(url);
     }
 
 

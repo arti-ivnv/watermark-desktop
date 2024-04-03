@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="801.0" prefWidth="604.0" styleClass="boby" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.WatermarkController">
+<BorderPane prefHeight="801.0" prefWidth="604.0" styleClass="boby" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.controller.WatermarkController">
    <center>
       <Pane prefHeight="387.0" prefWidth="642.0" styleClass="body" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
          <children>
