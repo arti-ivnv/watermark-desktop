@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.WatermarkController">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.controller.WatermarkController">
    <children>
       <Rectangle fx:id="originalDropBox" arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e70" height="117.0" layoutX="50.0" layoutY="170.0" onDragDropped="#handleDrop" onDragExited="#dragExit" onDragOver="#handleDragOver" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="551.0" AnchorPane.bottomAnchor="513.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="170.0" />
       <Rectangle fx:id="watermarkDropBox" arcHeight="5.0" arcWidth="5.0" fill="#6f6f6f70" height="117.0" layoutX="23.0" layoutY="374.0" onDragDropped="#handleDropWatermark" onDragExited="#dragExitWatermark" onDragOver="#handleDragOverWatermark" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="551.0" AnchorPane.bottomAnchor="309.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="374.0" />

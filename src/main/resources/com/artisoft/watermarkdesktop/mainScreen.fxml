@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -9,55 +9,70 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane styleClass="boby" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.WatermarkController">
+<BorderPane prefHeight="801.0" prefWidth="604.0" styleClass="boby" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.controller.WatermarkController">
    <center>
-      <Pane prefHeight="800.0" prefWidth="800.0" styleClass="body" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
+      <Pane prefHeight="387.0" prefWidth="642.0" styleClass="body" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
          <children>
-            <Label id="titleLabel" layoutX="134.0" prefHeight="154.0" prefWidth="532.0" stylesheets="@style/dark_mode.css" text="Watermark App">
-               <padding>
-                  <Insets bottom="40.0" left="18.0" right="5.0" top="50.0" />
-               </padding>
+            <Label id="titleLabel" layoutX="153.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="297.0" stylesheets="@style/dark_mode.css" text="Watermark App" textAlignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
             </Label>
-            <HBox layoutX="58.0" layoutY="428.0" prefHeight="166.0" prefWidth="690.0" spacing="80.0">
+            <HBox layoutX="32.0" layoutY="309.0" prefHeight="113.0" prefWidth="552.0" spacing="70.0">
                <children>
-                  <Button id="button-menu-png" mnemonicParsing="false" prefHeight="165.0" prefWidth="169.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="PNG " />
-                  <Button id="button-menu-text" mnemonicParsing="false" prefHeight="166.0" prefWidth="171.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Text" />
-                  <Button id="button-menu-editor" mnemonicParsing="false" prefHeight="166.0" prefWidth="171.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Editor" />
+                  <Button id="button-menu-png" mnemonicParsing="false" onAction="#pngLoader" prefHeight="113.0" prefWidth="145.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="PNG " />
+                  <Button id="button-menu-text" mnemonicParsing="false" prefHeight="113.0" prefWidth="145.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Text" />
+                  <Button id="button-menu-editor" mnemonicParsing="false" prefHeight="113.0" prefWidth="145.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Editor&#10;(Soon)" />
                </children>
             </HBox>
-            <HBox layoutX="192.0" layoutY="692.0" prefHeight="68.0" prefWidth="419.0" spacing="100.0">
+            <HBox layoutX="93.0" layoutY="498.0" prefHeight="68.0" prefWidth="419.0" spacing="100.0">
                <children>
                   <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="151.0" styleClass="button-reset" stylesheets="@style/dark_mode.css" text="RESET" />
                   <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="151.0" styleClass="button-generate" text="GENERATE" />
                </children>
             </HBox>
-            <Label fx:id="origFilesLabel" layoutX="35.0" layoutY="321.0" prefHeight="34.0" prefWidth="738.0" text="Files:" />
-            <Label layoutX="35.0" layoutY="355.0" prefHeight="34.0" prefWidth="738.0" text="Amount: " />
-            <Rectangle fx:id="originalDropBox" arcHeight="1.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutX="44.0" layoutY="178.0" onDragDropped="#handleDrop" onDragExited="#dragExit" onDragOver="#handleDragOver" stroke="BLACK" strokeType="INSIDE" width="691.0" />
+            <Label fx:id="origFilesLabel" layoutX="30.0" layoutY="227.0" prefHeight="34.0" prefWidth="555.0" text="Files:" />
+            <Label fx:id="filesCounter" layoutX="32.0" layoutY="261.0" prefHeight="34.0" prefWidth="541.0" text="Amount: " />
+            <Rectangle fx:id="originalDropBox" arcHeight="1.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutX="26.0" layoutY="104.0" onDragDropped="#handleDrop" onDragExited="#dragExit" onDragOver="#handleDragOver" stroke="BLACK" strokeType="INSIDE" width="551.0" />
          </children>
       </Pane>
    </center>
    <bottom>
       <Pane prefHeight="162.0" prefWidth="779.0" styleClass="footer" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="26.0" layoutY="15.0" lineSpacing="5.0" prefHeight="133.0" prefWidth="732.0" styleClass="footer-txt" text="Current program is made by Artem Ivanov. &#10;GitHub: &#10;LinkedIn:&#10;Telegram: &#10;Please contact me regarding any comercial offers. &#10;(RU) Пожалуйста, свяжитесь со мной касаемо комерческих заказов по разработке ПО.&#10;Icons by " wrapText="true" />
-            <Hyperlink fx:id="icons8" layoutX="84.0" layoutY="130.0" onAction="#openLinkOnClick" prefHeight="20.0" prefWidth="58.0" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="Icon8" underline="true" />
-            <Hyperlink fx:id="github" layoutX="74.0" layoutY="34.0" onAction="#openLinkOnClick" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="arti-ivnv" underline="true" />
-            <Hyperlink fx:id="linkedIn" layoutX="89.0" layoutY="53.0" onAction="#openLinkOnClick" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="artem-ivanov-9815a2172" underline="true" />
-            <Hyperlink fx:id="telegram" layoutX="89.0" layoutY="73.0" onAction="#openLinkOnClick" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="FoxyHikka" underline="true" />
+            <Label layoutX="14.0" layoutY="1.0" lineSpacing="5.0" prefHeight="160.0" prefWidth="587.0" styleClass="footer-txt" text="Current program is made by Artem Ivanov. &#10;GitHub: &#10;LinkedIn:&#10;Telegram: &#10;(EN) Please contact me regarding any comercial software development offers. &#10;(RU) Пожалуйста, свяжитесь со мной по поводу комерческой разработки ПО.&#10;Icons by " wrapText="true">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <Hyperlink fx:id="icons8" layoutX="55.0" layoutY="131.0" onAction="#openLinkOnClick" prefHeight="21.0" prefWidth="40.0" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="Icon8" underline="true" />
+            <Hyperlink fx:id="github" layoutX="51.0" layoutY="31.0" onAction="#openLinkOnClick" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="arti-ivnv" underline="true" />
+            <Hyperlink fx:id="linkedIn" layoutX="58.0" layoutY="51.0" onAction="#openLinkOnClick" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="artem-ivanov-9815a2172" underline="true" />
+            <Hyperlink fx:id="telegram" layoutX="63.0" layoutY="71.0" onAction="#openLinkOnClick" styleClass="footer-txt" stylesheets="@style/dark_mode.css" text="FoxyHikka" underline="true" />
          </children>
       </Pane>
    </bottom>
    <top>
-      <Pane prefHeight="50.0" prefWidth="800.0" styleClass="header" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
+      <Pane prefHeight="39.0" prefWidth="604.0" styleClass="header" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="exitButton" fitHeight="21.0" fitWidth="21.0" layoutX="572.0" layoutY="12.0" onMouseClicked="#clickExitButton" onMouseEntered="#mouseOverExit" onMouseExited="#mouseOutExit" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@style/images/icons8-exit.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </ImageView>
+            <Rectangle fx:id="exitButtonFilter" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#f7000056" height="21.0" layoutX="572.0" layoutY="12.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="21.0" />
+            <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="14.0" layoutY="11.0" onMouseEntered="#mouseOverExit" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@lol.png" />
                </image>
             </ImageView>
+            <Line endX="466.0" layoutX="126.0" layoutY="40.0" startX="-112.0" strokeWidth="0.5" />
          </children>
       </Pane>
    </top>
