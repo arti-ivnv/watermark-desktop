@@ -3,16 +3,18 @@ package com.artisoft.watermarkdesktop;
 import com.artisoft.watermarkdesktop.service.WatermarkService;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
+import com.artisoft.watermarkdesktop.utils.BrowserUtils;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -43,10 +45,6 @@ public class WatermarkController {
     @FXML
     public Label watermarkDropBoxLabel;
     @FXML
-    public Label subTitle;
-    @FXML
-    public TextArea adText;
-    @FXML
     public ImageView exitButton;
     private List<File> files = new ArrayList<File>();
     private List<String> fileNames = new ArrayList<String>();
@@ -71,6 +69,7 @@ public class WatermarkController {
 
     @FXML
     protected void dragExit(DragEvent e) {
+        System.out.println(e.getClass().getName());
         originalDropBox.setFill(Color.rgb(72,72,72));
     }
 
@@ -106,6 +105,13 @@ public class WatermarkController {
         this.watermarkFile = null;
         this.origFilesLabel.setText("Some Files");
         this.watermarkFileLabel.setText("Some File");
+    }
+
+    @FXML
+    protected void openLinkOnClick(Event event) throws MalformedURLException {
+        Hyperlink hyperlink = (Hyperlink)event.getSource();
+        String linkPressed = hyperlink.getId();
+        BrowserUtils.openWebpage(new URL(BrowserUtils.links.get(linkPressed)));
     }
 
 
