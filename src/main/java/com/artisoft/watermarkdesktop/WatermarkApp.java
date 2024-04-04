@@ -22,6 +22,7 @@ public class WatermarkApp extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("mainScreen.fxml")));
         stage.initStyle(StageStyle.UNDECORATED);
 
+
         // Move window
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
