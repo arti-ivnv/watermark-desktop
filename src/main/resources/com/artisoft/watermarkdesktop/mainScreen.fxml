@@ -24,10 +24,10 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <HBox layoutX="32.0" layoutY="271.0" prefHeight="113.0" prefWidth="552.0" spacing="70.0">
+            <HBox layoutX="35.0" layoutY="286.0" prefHeight="113.0" prefWidth="522.0" spacing="70.0">
                <children>
                   <Button id="button-menu-png" mnemonicParsing="false" onAction="#pngLoader" prefHeight="113.0" prefWidth="145.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="PNG " />
-                  <Button id="button-menu-text" mnemonicParsing="false" prefHeight="113.0" prefWidth="145.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Text" />
+                  <Button id="button-menu-text" mnemonicParsing="false" onAction="#textLoader" prefHeight="113.0" prefWidth="145.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Text" />
                   <Button id="button-menu-editor" mnemonicParsing="false" prefHeight="113.0" prefWidth="145.0" styleClass="button-menu" stylesheets="@style/dark_mode.css" text="Editor&#10;(Soon)" />
                </children>
             </HBox>
@@ -37,8 +37,8 @@
                   <Button mnemonicParsing="false" onAction="#generateWatermark" prefHeight="56.0" prefWidth="151.0" styleClass="button-generate" text="GENERATE" />
                </children>
             </HBox>
-            <Label fx:id="origFilesLabel" layoutX="25.0" layoutY="204.0" prefHeight="34.0" prefWidth="555.0" text="No file(s)" />
-            <Label fx:id="filesCounter" layoutX="25.0" layoutY="229.0" prefHeight="34.0" prefWidth="541.0" text="Amount: " />
+            <Label fx:id="origFilesLabel" layoutX="25.0" layoutY="220.0" prefHeight="34.0" prefWidth="555.0" text="No file(s)" />
+            <Label fx:id="filesCounter" layoutX="26.0" layoutY="245.0" prefHeight="34.0" prefWidth="541.0" text="Amount: " />
             <Rectangle fx:id="originalDropBox" arcHeight="1.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutX="26.0" layoutY="104.0" onDragDropped="#handleDrop" onDragExited="#dragExit" onDragOver="#handleDragOver" stroke="BLACK" strokeType="INSIDE" width="551.0" />
             <Label fx:id="watermarkFileLabel" layoutX="167.0" layoutY="439.0" prefHeight="26.0" prefWidth="335.0" text="No watermark file" />
             <Button layoutX="79.0" layoutY="431.0" mnemonicParsing="false" onAction="#checkWatermark" prefHeight="33.0" prefWidth="69.0" styleClass="button-back" text="Check" />

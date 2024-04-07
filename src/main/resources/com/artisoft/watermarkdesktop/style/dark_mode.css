@@ -7,6 +7,10 @@
     -fx-background-color: rgba(29, 35, 89, 0.8);
 }
 
+.textLoaderBody{
+    -fx-background-color: rgba(31, 9, 59, 0.8);
+}
+
 .footer{
     -fx-background-color: #202124;
 }

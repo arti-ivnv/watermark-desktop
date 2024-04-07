@@ -1,6 +1,7 @@
 package com.artisoft.watermarkdesktop.controller;
 
 import com.artisoft.watermarkdesktop.app.LoadPngApp;
+import com.artisoft.watermarkdesktop.app.LoadTextApp;
 import com.artisoft.watermarkdesktop.service.WatermarkService;
 import java.io.File;
 import java.io.IOException;
@@ -129,6 +130,13 @@ public class WatermarkController {
         watermarkFile = GlobalDataHandler.getFile();
         if(watermarkFile != null)
             watermarkFileLabel.setText("File: " + watermarkFile.getName());
+    }
+
+    @FXML
+    protected void textLoader() throws IOException {
+
+        URL url = this.getClass().getResource("/com/artisoft/watermarkdesktop/textWatermarkScreen.fxml");
+        new LoadTextApp(url);
     }
 
 
