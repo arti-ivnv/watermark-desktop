@@ -1,5 +1,6 @@
 package com.artisoft.watermarkdesktop.service;
 
+import com.artisoft.watermarkdesktop.controller.WatermarkController;
 import jakarta.xml.bind.DatatypeConverter;
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -18,6 +19,7 @@ import javax.swing.filechooser.FileSystemView;
 import org.apache.tika.Tika;
 
 public class WatermarkService {
+
     public void createWatermark(File originalFile, File watermarkFile) throws IOException {
         byte[] fileContent = this.imageToBytes(originalFile);
         String originalImg = Base64.getEncoder().encodeToString(fileContent);
@@ -96,4 +98,5 @@ public class WatermarkService {
             throw new RuntimeException(e);
         }
     }
+
 }

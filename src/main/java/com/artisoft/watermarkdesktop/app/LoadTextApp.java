@@ -1,6 +1,5 @@
 package com.artisoft.watermarkdesktop.app;
 
-import com.artisoft.watermarkdesktop.controller.WatermarkController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,10 +9,10 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.net.URL;
 
-public class LoadPngApp {
+public class LoadTextApp {
 
     private double x,y = 0;
-    public LoadPngApp(URL url) throws IOException {
+    public LoadTextApp(URL url) throws IOException {
         start(url);
     }
 
@@ -43,4 +42,5 @@ public class LoadPngApp {
         stage.setScene(scene);
         stage.show();
     }
+
 }

@@ -1,9 +1,23 @@
 .body{
     -fx-background-color: #202124;
+
+}
+
+.loaderBody{
+    -fx-background-color: rgba(29, 35, 89, 0.8);
+}
+
+.textLoaderBody{
+    -fx-background-color: rgba(31, 9, 59, 0.8);
 }
 
 .footer{
     -fx-background-color: #202124;
+}
+
+#footerLabel{
+    -fx-text-fill: rgba(201, 201, 201, 0.52);
+
 }
 
 .header{
@@ -79,6 +93,16 @@
     -fx-background-color: rgb(30, 162, 20);
     -fx-border-style: none;
     -fx-effect: dropshadow(one-pass-box, rgba(18, 98, 13, 0.41), 0, 0, 6, 6);
+    -fx-font-size: 12;
+    /*-fx-font-weight: ;*/
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "white";
+}
+
+.button-back {
+    -fx-background-color: rgb(220, 172, 18);
+    -fx-border-style: none;
+    -fx-effect: dropshadow(one-pass-box, rgba(220, 172, 18, 0.41), 0, 0, 6, 6);
     -fx-font-size: 12;
     /*-fx-font-weight: ;*/
     -fx-font-family: "Lucida Console";
