@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="495.0" prefWidth="604.0" styleClass="loaderBody" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.controller.LoadPngController">
+<BorderPane prefHeight="495.0" prefWidth="604.0" styleClass="textLoaderBody" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.controller.LoadPngController">
    <top>
       <Pane prefHeight="39.0" prefWidth="604.0" styleClass="textLoaderBody" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
          <children>
