@@ -4,6 +4,9 @@ import java.io.File;
 
 public final class GlobalDataHandler {
     private static File waterMarkFile;
+    private static boolean pngFeature = false;
+    private static boolean TextFeature = false;
+
 
     private GlobalDataHandler(){}
 

@@ -151,7 +151,7 @@ public class WatermarkController {
             } else {
                 for (File f : this.files) {
                     WatermarkService watermarkService = new WatermarkService();
-                    watermarkService.createWatermark(f, watermarkFile);
+                    watermarkService.createPngWatermark(f, watermarkFile);
                 }
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Complete! They are located in your Desktop directory!", ButtonType.OK);
                 alert.showAndWait();
