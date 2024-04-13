@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 import com.artisoft.watermarkdesktop.utils.BrowserUtils;
 import com.artisoft.watermarkdesktop.utils.GlobalDataHandler;
+import com.artisoft.watermarkdesktop.utils.TextWatermark;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.Event;
@@ -57,6 +58,7 @@ public class WatermarkController {
     private List<File> files = new ArrayList<File>();
     private List<String> fileNames = new ArrayList<String>();
     private File watermarkFile = null;
+    private TextWatermark textWatermark = null;
 
 
     @FXML
@@ -85,7 +87,7 @@ public class WatermarkController {
 
     @FXML
     protected void dragExit(DragEvent e) {
-        System.out.println(e.getClass().getName());
+//        System.out.println(e.getClass().getName());
         originalDropBox.setFill(Color.rgb(72,72,72));
     }
 
@@ -111,6 +113,8 @@ public class WatermarkController {
         filesCounter.setText("Amount: 0");
         GlobalDataHandler.setFile(null);
     }
+
+
 
     @FXML
     protected void openLinkOnClick(Event event) throws MalformedURLException {
@@ -142,29 +146,45 @@ public class WatermarkController {
 
     @FXML
     protected void generateWatermark() throws IOException {
-        if(watermarkFile != null) {
-            watermarkFile = GlobalDataHandler.getFile();
 
-            if (this.files == null || this.files.isEmpty() || watermarkFile == null) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Please choose at least one file!", ButtonType.OK);
-                alert.showAndWait();
-            } else {
-                for (File f : this.files) {
-                    WatermarkService watermarkService = new WatermarkService();
+        checkWatermark();
+
+        if (this.files == null || this.files.isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please choose at least one file!", ButtonType.OK);
+            alert.showAndWait();
+
+        } else {
+
+            WatermarkService watermarkService = new WatermarkService();
+
+            for (File f : this.files) {
+                if (watermarkFile != null)
                     watermarkService.createPngWatermark(f, watermarkFile);
-                }
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Complete! They are located in your Desktop directory!", ButtonType.OK);
-                alert.showAndWait();
+                else if (textWatermark != null)
+                    watermarkService.createTextWatermark(f, textWatermark);
+
             }
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Complete! They are located in your Desktop directory!", ButtonType.OK);
+            alert.showAndWait();
         }
     }
 
     @FXML
     protected void checkWatermark(){
-//        System.out.println(GlobalDataHandler.getFile().getName());
         watermarkFile = GlobalDataHandler.getFile();
-        if(watermarkFile != null)
+        textWatermark = GlobalDataHandler.getTextWatermark();
+        if (watermarkFile != null) {
             watermarkFileLabel.setText("File: " + watermarkFile.getName());
+        }
+        else if (textWatermark != null) {
+            watermarkFileLabel.setText("File: text watermark");
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please choose a file for watermark OR create one with text!", ButtonType.OK);
+            alert.showAndWait();
+        }
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.artisoft.watermarkdesktop.service;
 
 import com.artisoft.watermarkdesktop.controller.WatermarkController;
+import com.artisoft.watermarkdesktop.utils.TextWatermark;
 import jakarta.xml.bind.DatatypeConverter;
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -76,6 +77,70 @@ public class WatermarkService {
                 break;
         }
 
+        return;
+    }
+
+    public void createTextWatermark(File originalFile, TextWatermark watermarkFile) throws IOException {
+        // Convert original image to bytes
+        byte[] fileContent = this.imageToBytes(originalFile);
+
+        // get the type of the original document
+        Tika tika = new Tika();
+        String fileType = tika.detect(fileContent).split("/")[1];
+
+        assert fileContent != null;
+        ByteArrayInputStream is = new ByteArrayInputStream(fileContent);
+        BufferedImage bi = ImageIO.read(is);
+
+        // Font.BOLD == 1
+        Font f = new Font("TimesRoman", Font.BOLD, watermarkFile.getFontSize());
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+        Graphics2D g = bi.createGraphics();
+        g.setComposite(AlphaComposite.getInstance(3, 0.2f));
+        g.setColor(watermarkFile.getColor());
+        g.setFont(f);
+
+        switch (watermarkFile.getPattern()){
+            case "Zig-zag":
+                boolean shift = false;
+                for (int i = 0; i < bi.getHeight(); i += 30){
+                    if (shift){
+                        for(int j = 100; j < bi.getWidth(); j += 200){
+                            g.drawString(watermarkFile.getText(), j, i);
+                        }
+                        shift = false;
+                    } else {
+                        for(int j = 0; j < bi.getWidth(); j += 200){
+                            g.drawString(watermarkFile.getText(), j, i);
+                        }
+                        shift = true;
+                    }
+                }
+                break;
+            case "Tree":
+                int stringLength = watermarkFile.getText().length() * watermarkFile.getFontSize();
+                System.out.println(stringLength);
+                int lines = bi.getHeight() / watermarkFile.getFontSize();
+
+                for (int i = 0; i < lines; i+=2){
+                    // Center
+                    g.drawString(watermarkFile.getText(), bi.getWidth() / 2 , watermarkFile.getFontSize() * i);
+
+                    int ptrLeft = bi.getWidth() / 2 - stringLength;
+                    int ptrRight = bi.getWidth() / 2 + stringLength;
+
+                    for (int j = 0; j < i; j+=6){
+                        g.drawString(watermarkFile.getText(), ptrLeft , watermarkFile.getFontSize() * i);
+                        g.drawString(watermarkFile.getText(), ptrRight , watermarkFile.getFontSize() * i);
+                        ptrLeft -= stringLength;
+                        ptrRight += stringLength;
+                    }
+                }
+                break;
+        }
+        ImageIO.write(bi, "png", os);
+        this.saveFile(bi, originalFile);
         return;
     }
 
