@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="495.0" prefWidth="604.0" styleClass="textLoaderBody" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.controller.LoadPngController">
+<BorderPane prefHeight="495.0" prefWidth="604.0" styleClass="textLoaderBody" stylesheets="@style/dark_mode.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.artisoft.watermarkdesktop.controller.LoadTextController">
    <top>
       <Pane prefHeight="39.0" prefWidth="604.0" styleClass="textLoaderBody" stylesheets="@style/dark_mode.css" BorderPane.alignment="CENTER">
          <children>
@@ -46,30 +47,35 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Button fx:id="operationButton" layoutX="152.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#clickOperationButton" prefHeight="50.0" prefWidth="114.0" styleClass="button-back" text="Back" />
-            <VBox layoutX="193.0" layoutY="138.0" prefHeight="141.0" prefWidth="213.0" spacing="20.0">
+            <Button fx:id="operationButton" layoutX="243.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#clickOperationButton" prefHeight="50.0" prefWidth="114.0" styleClass="button-back" text="Back" />
+            <VBox layoutX="194.0" layoutY="115.0" prefHeight="227.0" prefWidth="213.0" spacing="20.0">
                <children>
                   <HBox prefHeight="32.0" prefWidth="185.0">
                      <children>
-                        <Label prefHeight="25.0" prefWidth="57.0" text="Text" />
-                        <TextField prefHeight="25.0" prefWidth="136.0" promptText="e.g. Google.com" />
+                        <Label prefHeight="25.0" prefWidth="70.0" text="Text" />
+                        <TextField fx:id="watermarkTextField" prefHeight="25.0" prefWidth="136.0" promptText="Some watermark text" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="17.0" prefWidth="213.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="70.0" text="Size (px)" />
+                        <Spinner fx:id="fontCounter" editable="true" prefHeight="25.0" prefWidth="77.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="28.0" prefWidth="213.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="70.0" text="Color" />
+                        <ColorPicker fx:id="watermarkColorPicker" prefHeight="25.0" prefWidth="136.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="32.0" prefWidth="185.0">
                      <children>
-                        <Label prefHeight="25.0" prefWidth="58.0" text="Color" />
-                        <ColorPicker prefHeight="25.0" prefWidth="136.0" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="32.0" prefWidth="185.0">
-                     <children>
-                        <Label prefHeight="26.0" prefWidth="58.0" text="Pattern" />
-                        <ComboBox prefHeight="25.0" prefWidth="136.0" />
+                        <Label prefHeight="26.0" prefWidth="70.0" text="Pattern" />
+                        <ComboBox fx:id="watermarkPatternComboBox" prefHeight="25.0" prefWidth="136.0" promptText="Choose a pattern" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="operationButton1" layoutX="333.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#clickOperationButton" prefHeight="50.0" prefWidth="114.0" styleClass="button-back" text="Back" />
          </children>
       </Pane>
    </center>
