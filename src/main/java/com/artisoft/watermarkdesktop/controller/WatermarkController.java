@@ -15,16 +15,12 @@ import java.util.stream.Collectors;
 import com.artisoft.watermarkdesktop.utils.BrowserUtils;
 import com.artisoft.watermarkdesktop.utils.GlobalDataHandler;
 import com.artisoft.watermarkdesktop.utils.TextWatermark;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.Border;
 import javafx.scene.paint.Color;
@@ -55,8 +51,8 @@ public class WatermarkController {
     public Rectangle exitButtonFilter;
     @FXML
     public Label filesCounter;
-    private List<File> files = new ArrayList<File>();
-    private List<String> fileNames = new ArrayList<String>();
+    private List<File> files = new ArrayList<>();
+    private List<String> fileNames = new ArrayList<>();
     private File watermarkFile = null;
     private TextWatermark textWatermark = null;
 
@@ -75,19 +71,18 @@ public class WatermarkController {
     }
 
     @FXML
-    protected void mouseOverExit(MouseEvent e){
+    protected void mouseOverExit(){
         exitButtonFilter.setVisible(true);
     }
 
     @FXML
-    protected void mouseOutExit(MouseEvent e){
+    protected void mouseOutExit(){
         exitButtonFilter.setVisible(false);
     }
 
 
     @FXML
-    protected void dragExit(DragEvent e) {
-//        System.out.println(e.getClass().getName());
+    protected void dragExit() {
         originalDropBox.setFill(Color.rgb(72,72,72));
     }
 
@@ -105,8 +100,8 @@ public class WatermarkController {
 
     @FXML
     protected void resetAction() {
-        this.files = new ArrayList<File>();
-        this.fileNames = new ArrayList<String>();
+        this.files = new ArrayList<>();
+        this.fileNames = new ArrayList<>();
         watermarkFile = null;
         this.origFilesLabel.setText("No file(s)");
         watermarkFileLabel.setText("No watermark file");
@@ -154,6 +149,7 @@ public class WatermarkController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please choose at least one file!", ButtonType.OK);
             alert.showAndWait();
 
+
         } else {
 
             WatermarkService watermarkService = new WatermarkService();
@@ -181,8 +177,7 @@ public class WatermarkController {
             watermarkFileLabel.setText("File: text watermark");
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please choose a file for watermark OR create one with text!", ButtonType.OK);
-            alert.showAndWait();
+            watermarkFileLabel.setText("Error: You have not chose a watermark!");
         }
 
     }

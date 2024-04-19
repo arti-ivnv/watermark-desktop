@@ -1,14 +1,11 @@
 package com.artisoft.watermarkdesktop.service;
 
-import com.artisoft.watermarkdesktop.controller.WatermarkController;
 import com.artisoft.watermarkdesktop.utils.TextWatermark;
 import jakarta.xml.bind.DatatypeConverter;
 import java.awt.AlphaComposite;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -40,43 +37,24 @@ public class WatermarkService {
 
         // get the type of the original document
         Tika tika = new Tika();
-
         String fileType = tika.detect(originalBase64Bytes).split("/")[1];
         System.out.println("fileType: " + fileType);
 
         String watermarkFileType = tika.detect(watermarkBase64Bytes).split("/")[1];
         System.out.println("fileType: " + watermarkFileType);
 
+        assert imgBytes != null;
         ByteArrayInputStream is = new ByteArrayInputStream(imgBytes);
         BufferedImage bi = ImageIO.read(is);
 
+        assert watermarkImgBytes != null;
         ByteArrayInputStream watrermarkIs = new ByteArrayInputStream(watermarkImgBytes);
         BufferedImage watermarkBi = ImageIO.read(watrermarkIs);
 
-        Font f = new Font("TimesRoman", 1, 10);
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-
-        boolean shift = false;
         Graphics2D g = bi.createGraphics();
         g.setComposite(AlphaComposite.getInstance(3, 0.2f));
-        switch (fileType) {
-            case "png":
-//                g.setColor(new Color(0.128f, 0.128f, 0.128f, 0.3f));
-//                g.setFont(f);
-                g.drawImage(watermarkBi, bi.getWidth() / 2 - 200, bi.getHeight() / 2 - 20, 400, 200, null);
-                ImageIO.write(bi, "png", os);
-                this.saveFile(bi, originalFile);
-                break;
-            case "jpg":
-            case "jpeg":
-//                g.setColor(new Color(0.128f, 0.128f, 0.128f, 0.3f));
-//                g.setFont(f);
-                g.drawImage(watermarkBi, bi.getWidth() / 2 - 200, bi.getHeight() / 2 - 20, 400, 200, null);
-                ImageIO.write(bi, "jpeg", os);
-                this.saveFile(bi, originalFile);
-                break;
-        }
-
+        g.drawImage(watermarkBi, bi.getWidth() / 2 - 200, bi.getHeight() / 2 - 20, 400, 200, null);
+        this.saveFile(bi, originalFile, fileType);
         return;
     }
 
@@ -140,7 +118,7 @@ public class WatermarkService {
                 break;
         }
         ImageIO.write(bi, "png", os);
-        this.saveFile(bi, originalFile);
+        this.saveFile(bi, originalFile, fileType);
         return;
     }
 
@@ -153,18 +131,35 @@ public class WatermarkService {
         }
     }
 
-    private void saveFile(BufferedImage bi, File file) {
+    private void saveFile(BufferedImage bi, File file, String fileType) {
         FileSystemView view = FileSystemView.getFileSystemView();
         File deskFile = view.getHomeDirectory();
         String desktopPath = deskFile.getPath();
         File resultFile = new File(desktopPath + "/result-" + file.getName());
         try {
+            switch (fileType) {
+                case "png":
+                    ImageIO.write(bi, "png", resultFile);
+                    break;
+                case "jpg":
+                case "jpeg":
+                    ImageIO.write(bi, "jpeg", resultFile);
+                    break;
+            }
             // TODO: add more formats (jpg, etc)
-            ImageIO.write(bi, "png", resultFile);
             System.out.println("result path: " + String.valueOf(resultFile));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean isWatermarkPng(File file){
+        String originalImg = Base64.getEncoder().encodeToString(imageToBytes(file));
+        byte[] fileBase64Bytes = DatatypeConverter.parseBase64Binary(originalImg);
+        Tika tika = new Tika();
+        String fileType = tika.detect(fileBase64Bytes).split("/")[1];
+
+        return fileType.equals("png");
     }
 
 }
