@@ -3,6 +3,7 @@
 ## About
 
 _Language_: **Java 21 + JavaFx** <br>
+_Packaging_: **Maven** <br>
 _Executable wrapper_: **launch4j** <br>
 _Executable installer (I tried but messed up)_ : **Inno Setup Compiler**
 
