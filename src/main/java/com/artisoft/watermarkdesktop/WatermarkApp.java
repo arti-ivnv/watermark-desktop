@@ -18,7 +18,7 @@ public class WatermarkApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-//        // Importing visuals
+        // Importing visuals
         Parent root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("mainScreen.fxml")));
         stage.initStyle(StageStyle.UNDECORATED);
 
@@ -37,7 +37,7 @@ public class WatermarkApp extends Application {
 
         Scene scene = new Scene(root);
 
-//        // Window settings
+        // Window settings
         stage.getIcons().add(new Image(this.getClass().getResourceAsStream("lol.png")));
         stage.setResizable(false);
         stage.setTitle("Watermark App");

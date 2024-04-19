@@ -2,6 +2,10 @@
 
 ## About
 
+_Language_: **Java 21 + JavaFx** <br>
+_Executable wrapper_: **launch4j** <br>
+_Executable installer (I tried but messed up)_ : **Inno Setup Compiler**
+
 <pre>
 This program is made out of [watermark-app] repository which is a web version. 
 It puts any png watermark to the image or set of images in format of png, jpeg, jpg.
@@ -11,25 +15,31 @@ I have decided to make it open source. :)
 
 </pre>
 
+
 <div align="center">
     <img src="readme_img/screen.png" style="width: 70% " alt="none">
 </div>
 
-## Project contains
-• Source code <br>
-• Compiled and assembled program (download and use)
-
-## Installation (usage)
+## Installation
 For current version, I messed up doing an installer, so I made an executable runner.<br>
 The only thing you need to do:
-1) Download folder ```watermark_prod``` which you can find in ```~/watermark-desktop/exec/```
-2) Create folder ```/watermark_prod/JRE``` and place your JDK(18+) there
-2) run ```Watermark.exe```
+1) Download folder ```watermark_user``` 
+2) Download JRE 21 from https://www.azul.com/downloads/?package=jdk#zulu
 
-## Usage 
-In case to modify my program you need JDK which is compatible with JFX v18.*
+<div align="center">
+    <img src="readme_img/screen2.png" style="width: 100% " alt="none">
+</div>
 
-## Version v1.1 modifications (in progress)
-1) English language support
-2) Text version of watermark (typed / txt file uploaded)
-3) Different watermark patterns (it is ready but requires some improvements)
+3) Place everything from downloaded archive to JRE folder
+
+<div align="center">
+    <img src="readme_img/screen3.png" style="width: 100% " alt="none">
+</div>
+
+<div align="center">
+    <img src="readme_img/screen4.png" style="width: 100% " alt="none">
+</div>
+
+4) Run Watermark.exe
+
+
