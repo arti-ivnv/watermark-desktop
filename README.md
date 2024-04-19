@@ -1,4 +1,4 @@
-# watermark-desktop v1.0
+# watermark-desktop v2.0
 
 ## About
 
