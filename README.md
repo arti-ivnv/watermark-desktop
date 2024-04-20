@@ -28,7 +28,7 @@ The only thing you need to do:
 2) Download JRE 21 from https://www.azul.com/downloads/?package=jdk#zulu
 
 <div align="center">
-    <img src="readme_img/screen2.png" style="width: 100% " alt="none">
+    <img src="readme_img/screen5.png" style="width: 100% " alt="none">
 </div>
 
 3) Place everything from downloaded archive to JRE folder
